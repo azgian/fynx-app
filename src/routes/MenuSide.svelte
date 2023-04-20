@@ -1,36 +1,33 @@
 <script>
 	import { page } from '$app/stores';
-	const routesDirArr = ['Chart', 'Market', 'Exch', 'Board', 'Office', 'Sys'];
 	import ChartLine from 'svelte-material-icons/ChartLine.svelte';
 	import SyncCircle from 'svelte-material-icons/SyncCircle.svelte';
 	import SwapHorizontalBold from 'svelte-material-icons/SwapHorizontalBold.svelte';
 	import MessageText from 'svelte-material-icons/MessageText.svelte';
 	import AccountCheck from 'svelte-material-icons/AccountCheck.svelte';
 	import CogOutline from 'svelte-material-icons/CogOutline.svelte';
+	const routesDirArr = [
+		{ dirName: 'Chart', icon: ChartLine },
+		{ dirName: 'Market', icon: SwapHorizontalBold },
+		{ dirName: 'Exch', icon: SyncCircle },
+		{ dirName: 'Board', icon: MessageText },
+		{ dirName: 'Office', icon: AccountCheck },
+		{ dirName: 'Sys', icon: CogOutline }
+	];
+	// import { testText } from './LogoutTimer.svelte';
+	//on:click={timerReset} logoutLimitedTime, logoutTime,
 </script>
 
 <nav id="menu-side">
 	{#each routesDirArr as routesDir, i}
 		<li>
 			<a
-				class={$page.url.pathname === '/' + routesDir.toLowerCase() ? 'current' : undefined}
-				href="/{routesDir === 'Chart' ? '' : routesDir.toLowerCase()}"
+				class={$page.url.pathname === '/' + routesDir.dirName.toLowerCase() ? 'current' : undefined}
+				href="/{i === 0 ? '' : routesDir.dirName.toLowerCase()}"
 			>
 				<div class="path_name-box">
-					{#if i === 0}
-						<ChartLine />
-					{:else if i === 1}
-						<SwapHorizontalBold />
-					{:else if i === 2}
-						<SyncCircle />
-					{:else if i === 3}
-						<MessageText />
-					{:else if i === 4}
-						<AccountCheck />
-					{:else if i === 5}
-						<CogOutline />
-					{/if}
-					<span class="path_name">{routesDir}</span>
+					<svelte:component this={routesDir.icon} />
+					<span class="path_name">{routesDir.dirName}</span>
 				</div>
 			</a>
 		</li>
@@ -59,7 +56,7 @@
 	}
 	#menu-side li a.current {
 		background: var(--header-color);
-		color: #f758e9;
+		color: #fca3f4;
 	}
 	#menu-side li .path_name-box {
 		display: flex;

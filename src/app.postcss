@@ -6,6 +6,10 @@
 html,
 body {
 	@apply h-full overflow-hidden;
+	-ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+	display: none;
 }
 
 :root {
@@ -27,6 +31,10 @@ body {
 	--footer-color: rgb(93, 93, 94);
 	font-family: var(--font-body);
 	color: var(--color-text);
+}
+
+.d-none {
+	display: none;
 }
 
 .container-box {

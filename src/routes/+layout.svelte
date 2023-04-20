@@ -11,6 +11,7 @@
 	import AccountCircle from 'svelte-material-icons/AccountCircle.svelte';
 	import MenuSide from './MenuSide.svelte';
 	import MenuBottom from './MenuBottom.svelte';
+	import LogoutTimer from './LogoutTimer.svelte';
 </script>
 
 <AppShell
@@ -39,7 +40,9 @@
 					<span class="mb_name">회원명</span>
 				</div>
 			</svelte:fragment>
-			<svelte:fragment slot="trail" />
+			<svelte:fragment slot="trail">
+				<LogoutTimer />
+			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<slot />
