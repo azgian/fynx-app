@@ -14,9 +14,7 @@
 		{ dirName: 'Office', icon: AccountCheck },
 		{ dirName: 'Sys', icon: CogOutline }
 	];
-	const btnTimerClick = () => {
-		document.getElementById('btnTimer').click();
-	};
+	import { btnTimerClick } from './LogoutTimer.svelte';
 </script>
 
 <nav id="menu-bottom">

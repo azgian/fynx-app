@@ -14,8 +14,7 @@
 		{ dirName: 'Office', icon: AccountCheck },
 		{ dirName: 'Sys', icon: CogOutline }
 	];
-	// import { testText } from './LogoutTimer.svelte';
-	//on:click={timerReset} logoutLimitedTime, logoutTime,
+	import { btnTimerClick } from './LogoutTimer.svelte';
 </script>
 
 <nav id="menu-side">
@@ -24,6 +23,7 @@
 			<a
 				class={$page.url.pathname === '/' + routesDir.dirName.toLowerCase() ? 'current' : undefined}
 				href="/{i === 0 ? '' : routesDir.dirName.toLowerCase()}"
+				on:click={btnTimerClick}
 			>
 				<div class="path_name-box">
 					<svelte:component this={routesDir.icon} />

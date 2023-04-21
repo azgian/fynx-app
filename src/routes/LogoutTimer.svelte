@@ -1,5 +1,11 @@
+<script context="module">
+	export const btnTimerClick = () => {
+		document.getElementById('btnTimer').click();
+	};
+</script>
+
 <script>
-	const logoutLimitedTime = 65; // 10분
+	const logoutLimitedTime = 600; // 10분
 	let logoutTime = logoutLimitedTime;
 	import Clock from 'svelte-material-icons/Clock.svelte';
 	import { Toast, toastStore } from '@skeletonlabs/skeleton';
@@ -23,7 +29,7 @@
 		sec = time % 60;
 		_min = min > 9 ? min : String('0' + min);
 		_sec = sec > 9 ? sec : String('0' + sec);
-		console.log(_min + ':' + _sec);
+		// console.log(_min + ':' + _sec);
 		return _min + ':' + _sec;
 	};
 	const logoutTimer = setInterval(() => {
